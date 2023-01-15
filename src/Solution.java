@@ -3,28 +3,18 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        int balance = 10;
 
-
-
-        int count=0;
-        int a;
-
-        while (true)
-        {
-            a=scanner.nextInt();
-            if (a<0)
-            {
-                count++;
-            }
-            else {break;}
-
+        while (true) {
+            if (balance < 9)
+                break;
+            balance = balance - 9;
         }
-        System.out.println(count);
-
-
-
+        System.out.println("kekw");
 
     }
-
 }
+
+
+
+
