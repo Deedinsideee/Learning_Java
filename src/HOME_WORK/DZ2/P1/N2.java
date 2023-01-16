@@ -14,7 +14,7 @@ public class N2 {
         }
         int M=0;
         M=scanner.nextInt();
-        int[] mas2 =new int[N];
+        int[] mas2 =new int[M];
         for (int i = 0;i<M;i++)
         {
             mas2[i]=scanner.nextInt();

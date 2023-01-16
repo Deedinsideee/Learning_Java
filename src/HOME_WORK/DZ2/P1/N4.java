@@ -29,7 +29,7 @@ public class N4 {
 
 
             }
-            System.out.println(count + " "+ mass[i] + "\n");
+            System.out.println(count + " "+ mass[i] );
             i+=count;
 
         }

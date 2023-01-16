@@ -1,16 +1,34 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
 
-        int balance = 10;
-
-        while (true) {
-            if (balance < 9)
-                break;
-            balance = balance - 9;
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        String[] s = new String[N];
+        for (int i = 0; i < s.length; i++)
+        {
+            s[i]=scanner.next();
         }
-        System.out.println("kekw");
+        Boolean flag= true;
+        for (int i = 0; i < s.length; i++)
+        {
+            for (int j = i+1; j <s.length; j++)
+            {
+                if (s[i].equals(s[j]))
+                {
+                    flag=false;
+                    System.out.println(s[i]);
+                    break;
+                }
+
+            }
+            if (flag==false)
+            {
+                break;
+            }
+        }
 
     }
 }

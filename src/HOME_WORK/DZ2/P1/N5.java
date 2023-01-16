@@ -26,7 +26,15 @@ public class N5 {
             mass1[ind]=mass[i];
 
         }
-        System.out.print(Arrays.toString(mass1));
+        for (int i=0 ;i<mass1.length;i++)
+        {
+            if (i== mass1.length-1)
+            {
+                System.out.print(mass1[i]);
+                break;
+            }
+            System.out.print(mass1[i]+" ");
+        }
 
     }
 }
