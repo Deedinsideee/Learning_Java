@@ -10,8 +10,8 @@ public class N10 {
         System.out.println(ran);
         System.out.println("Ugadaite chislo!");
         Scanner scanner = new Scanner(System.in);
-        int num ;
-        while (true) {
+        int num=0 ;
+        while (num>-1) {
             num = scanner.nextInt();
             if (num == ran) {
                 System.out.println("True!!!");
