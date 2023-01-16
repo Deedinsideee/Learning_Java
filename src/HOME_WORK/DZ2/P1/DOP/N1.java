@@ -63,6 +63,6 @@ public class N1 {
             N = scanner.nextInt();
         }
         System.out.println(genPass(N));
-        //ы
+
     }
 }

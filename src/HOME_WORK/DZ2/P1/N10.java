@@ -1,7 +1,7 @@
 package HOME_WORK.DZ2.P1;
 
 import java.util.Scanner;
-
+//не могу перевести на русский)
 public class N10 {
 
 
@@ -29,7 +29,7 @@ public class N10 {
 
 
     public static void main(String[] args) {
-        //не могу перевести на русский)
+
             Game();
     }
 
