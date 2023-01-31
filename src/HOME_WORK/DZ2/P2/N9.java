@@ -1,8 +1,8 @@
-
+package HOME_WORK.DZ2.P2;
 
 import java.util.Scanner;
 
-public class Solution {
+public class N9 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
@@ -26,7 +26,7 @@ public class Solution {
             return String.valueOf(n);
         }
         else
-            return ( String.valueOf(n%10)+" "+summ(n/10) );
+            return (summ(n/10) + " "+ String.valueOf(n%10));
 
     }
 }
