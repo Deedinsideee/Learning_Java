@@ -1,5 +1,5 @@
 package HOME_WORK.DZ3.P2;
-
+//DZ3P2
 public class Positetel {
     static int count =0;
     private int id;
