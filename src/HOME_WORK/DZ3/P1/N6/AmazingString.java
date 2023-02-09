@@ -1,4 +1,4 @@
-package HOME_WORK.DZ3.N6;
+package HOME_WORK.DZ3.P1.N6;
 
 public class AmazingString {
     private char[] stroka;

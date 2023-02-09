@@ -1,6 +1,5 @@
-package HOME_WORK.DZ3.N2_N3;
+package HOME_WORK.DZ3.P1.N2_N3;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 

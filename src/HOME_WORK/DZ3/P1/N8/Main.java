@@ -1,4 +1,4 @@
-package HOME_WORK.DZ3.N8;
+package HOME_WORK.DZ3.P1.N8;
 
 
 

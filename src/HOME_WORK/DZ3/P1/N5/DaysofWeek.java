@@ -1,4 +1,4 @@
-package HOME_WORK.DZ3.N5;
+package HOME_WORK.DZ3.P1.N5;
 
 public class DaysofWeek {
 

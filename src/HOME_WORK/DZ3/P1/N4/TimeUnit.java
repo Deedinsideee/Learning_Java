@@ -1,4 +1,4 @@
-package HOME_WORK.DZ3.N4;
+package HOME_WORK.DZ3.P1.N4;
 
 public class TimeUnit {
     private int hour;
