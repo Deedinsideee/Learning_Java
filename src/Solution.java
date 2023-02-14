@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        System.out.println(summ(n));
+        System.out.println(isPalindrome("kekwwkek"));
+
 
     }
 
@@ -19,14 +18,13 @@ public class Solution {
 
 
 
-    public static String  summ(int n)
-    {
-        if (n/10==0)
-        {
-            return String.valueOf(n);
-        }
+    public static boolean isPalindrome(String s) {
+        if (s.length() <= 1) // простой случай
+            return true;
+        else if (s.charAt(0) != s.charAt(s.length() - 1))
+            return false;
         else
-            return ( String.valueOf(n%10)+" "+summ(n/10) );
+        return isPalindrome(s.substring(1, s.length() - 1));
+    }
 
     }
-}

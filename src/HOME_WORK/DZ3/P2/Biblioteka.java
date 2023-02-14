@@ -6,185 +6,189 @@ import java.util.Scanner;
 
 //DZ3P2
 public class Biblioteka {
-    Scanner scanner = new Scanner(System.in);
 
-    private List<Kniga> knigi = new ArrayList<Kniga>() {{
-        add(new Kniga("Otsi i deti", "Turgenev"));
-        add(new Kniga("Voina i mir", "Tolstoy"));
-        add(new Kniga("Vedmak", "Sapkovskiy"));
-        add(new Kniga("r", "r"));
-      /*  add(new Kniga("s", "r"));
-        add(new Kniga("t", "r"));
-        add(new Kniga("p", "r"));*/
 
-    }};
-
-    private List<Positetel> posetiteli = new ArrayList<Positetel>() {{
-        add(new Positetel("Petya"));
-        add(new Positetel("Vasya"));
-        add(new Positetel("Ollya"));
-        add(new Positetel("r"));
+    private List<Book> books = new ArrayList<Book>() {{
+        add(new Book("Otsi i deti", "Turgenev"));
+        add(new Book("Voina i mir", "Tolstoy"));
+        add(new Book("Vedmak", "Sapkovskiy"));
+        add(new Book("r", "r"));
+        add(new Book("s", "r"));
+        add(new Book("t", "r"));
+        add(new Book("p", "r"));
 
     }};
 
+    private List<Visitor> visitors = new ArrayList<Visitor>() {{
+        add(new Visitor("Petya"));
+        add(new Visitor("Vasya"));
+        add(new Visitor("Ollya"));
+        add(new Visitor("r"));
 
-    public void showallKnigi(List<Kniga> knigi) {
-        knigi.forEach(Kniga::showKniga);
+    }};
+
+
+
+
+    public void showallBooks() {
+        books.forEach(Book::showBook);
     }
 
-    public void showallKnigi() {
-        knigi.forEach(Kniga::showKniga);
+    public void showallCVisitors() {
+        visitors.forEach(Visitor::showVis);
     }
 
-    public void showallCheli() {
-        posetiteli.forEach(Positetel::showChel);
-    }
+    //Добавить книгу
+    public void AddBook(Book buff) {
 
-    public void AddKniga() {
-        System.out.println("Vvedite nazv i author");
-        Kniga buff = new Kniga(scanner.next(), scanner.next());
         Boolean kek = true;
-        for (int i = 0; i < knigi.size(); i++) {
-            if (knigi.get(i).getNazv().equals(buff.getNazv())) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getName().equals(buff.getName())) {
                 kek = false;
                 break;
             }
         }
         if (kek) {
-            knigi.add(buff);
+            books.add(buff);
             System.out.println("Kniga dobavlena");
         } else {
-            Kniga.count--;
+            Book.count--;
             System.out.println("Kniga uje est'");
         }
 
     }
 
+    //Удалить Книгу
+    public void DeleteBook(String s) {
 
-    public void DeleteKniga() {
-        System.out.println("Vvedite nazv ");
-        String s = scanner.next();
         Boolean kek = false;
 
-        for (int i = 0; i < knigi.size(); i++) {
-            if (knigi.get(i).getNazv().equals(s)) {
-                if (knigi.get(i).getIschitaet()) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getName().equals(s)) {
+                if (books.get(i).getIsReading()) {
                     System.out.println("kniga zanyata");
                 } else {
-                    knigi.remove(i);
+                    books.remove(i);
                     System.out.println("Kniga udalena");
                 }
                 break;
-            } else if (i == knigi.size() - 1) {
+            } else if (i == books.size() - 1) {
                 System.out.println("Takoy knigi net");
             }
         }
 
 
     }
+    //Найти книгу по названию
+    public Book FindBookByName(String s) {
 
-    public void FindKnigabynazv() {
-        System.out.println("Vvedite nazv ");
-        String s = scanner.next();
         Boolean kek = true;
-        for (int i = 0; i < knigi.size(); i++) {
-            if (knigi.get(i).getNazv().equals(s)) {
-                knigi.get(i).showKniga();
+        int i =0;
+        for ( i = 0; i < books.size(); i++) {
+            if (books.get(i).getName().equals(s)) {
+
                 break;
 
-            } else if (i == knigi.size() - 1) {
+            } else if (i == books.size() - 1) {
                 System.out.println("Takoy knigi net");
             }
 
         }
+        return books.get(i);
     }
 
+    //Найти книгу по Автору
+    public List<Book> FindBookByauthor(String s) {
 
-    public void FindKnigiByauthor() {
-        System.out.println("Vvedite  author");
-        String s = scanner.next();
-        List<Kniga> buffer = new ArrayList<>();
-        for (int i = 0; i < knigi.size(); i++) {
-            if (knigi.get(i).getAuthor().equals(s)) {
-                buffer.add(knigi.get(i));
+        List<Book> buffer = new ArrayList<>();
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getAuthor().equals(s)) {
+                buffer.add(books.get(i));
 
             }
         }
-        showallKnigi(buffer);
+        return buffer;
     }
 
-    public void Odoljit() {
+    //Одолжить книгу
+    public void Borrow(String name,String nameofBook) {
         int indofchel = 0;
 
-        System.out.println("Vvedite vshe imya ");
-        String s = scanner.next();
-        for (int i = 0; i < posetiteli.size(); i++) {
-            if (posetiteli.get(i).getName().equals(s)) {
+
+        for (int i = 0; i < visitors.size(); i++) {
+            if (visitors.get(i).getName().equals(name)) {
 
                 indofchel = i;
-                System.out.println("Vi STARIY polzovatel!");
+
                 break;
             } else
-                if (i == knigi.size() - 1) {
-                indofchel = knigi.size();
+                if (i == books.size() - 1) {
+                indofchel = books.size();
                 System.out.println("Vi noviy polzovatel!!!!");
                 System.out.println("VASH IND = " + indofchel);
-                posetiteli.add(new Positetel(s));
+                visitors.add(new Visitor(name));
+                break;
             }
 
         }
 
 
-        System.out.println("Vvedite nazv ");
-        s = scanner.next();
+
         Boolean kek = true;
 
 
-        for (int i = 0; i < knigi.size(); i++) {
-            if (knigi.get(i).getNazv().equals(s)) {
-                if (posetiteli.get(indofchel).getIdknigi() == 0) {
-                    if ( !knigi.get(i).getIschitaet()) {
-                        knigi.get(i).KnigyChitaut();
-                        posetiteli.get(indofchel).ChitaetKnigu(knigi.get(i).getId());
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getName().equals(nameofBook)) {
+                if (visitors.get(indofchel).getBookId() == 0) {
+                    if ( !books.get(i).getIsReading()) {
+                        books.get(i).BookIsReading();
+                        visitors.get(indofchel).VisIsReading(books.get(i).getId());
                         break;
                     }
-                    else System.out.println("Etu Knigu chitaut");
+                    else{
+                        System.out.println("Etu Knigu chitaut");
+                        break;
+                    }
                 }
-                else System.out.println("Vi chitaete druguu knigu");
+                else
+                {
+                    System.out.println("Vi chitaete druguu knigu");
+                    break;
+                }
 
-
-            } else if (i == knigi.size() - 1) {
+            }
+            else if (i == books.size() - 1) {
                 System.out.println("Takoy knigi net");
+
             }
 
         }
     }
 
-
-    public void Vernut() {
+    //Вернуть книгу
+    public void ReturnBook(String s,double ke) {
         int indofchel = 0;
 
-        System.out.println("Vvedite vshe imya ");
-        String s = scanner.next();
+
         Boolean kek = false;
-        for (int i = 0; i < posetiteli.size(); i++) {
-            if (posetiteli.get(i).getName().equals(s)) {
+        for (int i = 0; i < visitors.size(); i++) {
+            if (visitors.get(i).getName().equals(s)) {
 
                 indofchel = i;
                 kek = true;
-                System.out.println("Vi STARIY polzovatel!");
+
 
             }
 
 
         }
         if (kek) {
-            if (posetiteli.get(indofchel).getIdknigi() != 0) {
-                System.out.println("Ocenite Knigu");
-                double ke = scanner.nextDouble();
-                knigi.get(posetiteli.get(indofchel).getIdknigi()-1).Addocenku(ke);
-                knigi.get(posetiteli.get(indofchel).getIdknigi()-1).KnigyOtdut();
-                posetiteli.get(indofchel).OtdaetKnigu();
+            if (visitors.get(indofchel).getBookId() != 0) {
+
+
+                books.get(visitors.get(indofchel).getBookId()-1).AddEvaluation(ke);
+                books.get(visitors.get(indofchel).getBookId()-1).BookIsBack();
+                visitors.get(indofchel).VisRetBook();
             } else
                 System.out.println("Vi ne brali knigu");
         } else
@@ -193,17 +197,20 @@ public class Biblioteka {
 
         }
 
-        public void ShowOcenkiKnigi()
+
+
+
+        //Показать оценки книги
+        public void ShowEvaluationsOfBook(String s)
         {
-            System.out.println("Vvedite nazv ");
-            String s = scanner.next();
+
             Boolean kek = true;
-            for (int i = 0; i < knigi.size(); i++) {
-                if (knigi.get(i).getNazv().equals(s)) {
-                    System.out.println( knigi.get(i).getOcenki());
+            for (int i = 0; i < books.size(); i++) {
+                if (books.get(i).getName().equals(s)) {
+                    System.out.println( books.get(i).getEvaluations());
                     break;
 
-                } else if (i == knigi.size() - 1) {
+                } else if (i == books.size() - 1) {
                     System.out.println("Takoy knigi net");
                 }
 
