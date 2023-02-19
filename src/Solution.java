@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("kekwwkek"));
 
+
+        System.out.print("A,B;C".replaceAll(",;", "#") + " ");
+        System.out.println("A,B;C".replaceAll("[,;]", "#"));
 
     }
 
