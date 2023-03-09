@@ -1,12 +1,7 @@
-public class Test {
+class Test {
     public static void main(String[] args) {
-
-        StringBuilder strBuf = new StringBuilder();
-        strBuf.append("ABCCEFC");
-
-        System.out.println(strBuf.charAt(strBuf.length() - 1));
-
+        StringBuilder strBuf = new StringBuilder(4);
+        strBuf.append("ABCDE");
+        System.out.println("What's strBuf.charAt(5)? " + strBuf.charAt(5));
     }
-
-
 }
