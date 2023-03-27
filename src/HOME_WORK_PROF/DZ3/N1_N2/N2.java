@@ -19,7 +19,7 @@ public class N2 {
         else
         {
             IsLike islike = clazz.getAnnotation(IsLike.class);
-            System.out.println("znachenie annotatii" +islike.a());
+            System.out.println("значение аннотации" +islike.a());
         }
     }
 }
