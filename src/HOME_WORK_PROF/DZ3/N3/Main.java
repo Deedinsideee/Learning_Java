@@ -8,14 +8,14 @@ public class Main {
         try {
             APrinter aPrinter= new APrinter();
 
-            Method method = aPrinter.getClass().getDeclaredMethod("print", int.class);
+            Method method = aPrinter.getClass().getDeclaredMethod("printf", int.class);
 
-            method.invoke(aPrinter,74);
+            method.invoke(aPrinter,12);
 
         } catch (InvocationTargetException e) {
             System.out.println("Iskluchenit kotoroe ya ne ponyal((");
         } catch (NoSuchMethodException e) {
-            System.out.println("Takogo metoda net");
+            System.out.println("Привет");
         } catch (IllegalAccessException e) {
             System.out.println("Net dostupa");
         }
